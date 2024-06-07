@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.team {
+    text-align: center;
+}
+
+.team img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team input[type="file"] {
+    display: block;
+    margin: 10px auto;
+}
+
+.events {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.events h4 {
+    margin: 10px 0;
+}
+
+.events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.events ul li {
+    background-color: #f0f0f0;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.score {
+    font-size: 2em;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.score-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.team-controls {
+    margin-bottom: 10px;
+}
+
+.team-controls input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: grab;
+    background-color: #027793;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}

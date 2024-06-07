@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score en Direct</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Matchs en Direct</h1>
+        <table id="matches-table">
+            <thead>
+                <tr>
+                    <th>Match</th>
+                    <th>Équipe 1</th>
+                    <th>Score</th>
+                    <th>Équipe 2</th>
+                    <th>Contrôles</th>
+                </tr>
+            </thead>
+            <tbody id="matches-container">
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const numberOfMatches = 6;
+        const matchesContainer = document.getElementById('matches-container');
+
+        for (let i = 1; i <= numberOfMatches; i++) {
+            matchesContainer.innerHTML += `
+                <tr id="match${i}">
+                    <td>Match ${i}</td>
+                    <td>
+                        <div class="team">
+                            <img id="team1-img-${i}" src="team1.jpg" alt="Équipe 1">
+                            <h3 id="team1-name-${i}">Équipe 1</h3>
+                            <input type="file" id="team1-upload-${i}" accept="image/*" onchange="changeImage('team1', ${i})">
+                            <div class="events">
+                                <h4>Buteurs</h4>
+                                <ul id="team1-scorers-${i}"></ul>
+                                <h4>Cartons Jaunes</h4>
+                                <ul id="team1-yellow-cards-${i}"></ul>
+                                <h4>Cartons Rouges</h4>
+                                <ul id="team1-red-cards-${i}"></ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="score">
+                        <span id="team1-score-${i}">0</span> - <span id="team2-score-${i}">0</span>
+                    </td>
+                    <td>
+                        <div class="team">
+                            <img id="team2-img-${i}" src="team2.jpg" alt="Équipe 2">
+                            <h3 id="team2-name-${i}">Équipe 2</h3>
+                            <input type="file" id="team2-upload-${i}" accept="image/*" onchange="changeImage('team2', ${i})">
+                            <div class="events">
+                                <h4>Buteurs</h4>
+                                <ul id="team2-scorers-${i}"></ul>
+                                <h4>Cartons Jaunes</h4>
+                                <ul id="team2-yellow-cards-${i}"></ul>
+                                <h4>Cartons Rouges</h4>
+                                <ul id="team2-red-cards-${i}"></ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="controls">
+                        <div class="team-controls">
+                            <input type="text" id="team1-player-name-${i}" placeholder="Nom du joueur">
+                            <button onclick="addScorer('team1', ${i})">Ajouter Buteur Équipe 1</button>
+                            <button onclick="addYellowCard('team1', ${i})">Ajouter Carton Jaune Équipe 1</button>
+                            <button onclick="addRedCard('team1', ${i})">Ajouter Carton Rouge Équipe 1</button>
+                        </div>
+                        <div class="team-controls">
+                            <input type="text" id="team2-player-name-${i}" placeholder="Nom du joueur">
+                            <button onclick="addScorer('team2', ${i})">Ajouter Buteur Équipe 2</button>
+                            <button onclick="addYellowCard('team2', ${i})">Ajouter Carton Jaune Équipe 2</button>
+                            <button onclick="addRedCard('team2', ${i})">Ajouter Carton Rouge Équipe 2</button>
+                        </div>
+                        <div class="score-controls">
+                            <button onclick="updateScore('team1', 1, ${i})">+1 Équipe 1</button>
+                            <button onclick="updateScore('team1', -1, ${i})">-1 Équipe 1</button>
+                            <button onclick="updateScore('team2', 1, ${i})">+1 Équipe 2</button>
+                            <button onclick="updateScore('team2', -1, ${i})">-1 Équipe 2</button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>
